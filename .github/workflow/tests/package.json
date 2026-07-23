@@ -1,0 +1,14 @@
+{
+  "name": "search-app-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:integration": "jest integration.test.js",
+    "test:ui": "playwright test ui.test.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "axios": "^1.7.2",
+    "@playwright/test": "^1.45.0"
+  }
+}

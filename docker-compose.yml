@@ -27,6 +27,8 @@ services:
       - DB_NAME=searchapp
       - DB_USER=appuser
       - DB_PASSWORD=apppass
+    ports:
+      - "3001:3001"
     depends_on:
       - db
     networks:
