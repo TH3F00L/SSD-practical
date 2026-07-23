@@ -17,6 +17,7 @@ const pool = new Pool({
   database: process.env.DB_NAME || 'searchapp',
   user: process.env.DB_USER || 'appuser',
   password: process.env.DB_PASSWORD || 'apppass',
+  connectionTimeoutMillis: 5000,
 });
 
 function escapeHtml(str) {

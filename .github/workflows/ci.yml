@@ -50,6 +50,14 @@ jobs:
       - name: Start app + database
         run: docker compose up -d --build app db
 
+      - name: Wait for database to be ready
+        run: |
+          for i in $(seq 1 30); do
+            docker compose exec -T db pg_isready -U appuser -d searchapp && exit 0
+            sleep 2
+          done
+          echo "Database did not become ready in time" && exit 1
+
       - name: Wait for app to be ready
         run: |
           for i in $(seq 1 30); do
@@ -84,6 +92,14 @@ jobs:
 
       - name: Start app + database
         run: docker compose up -d --build app db
+
+      - name: Wait for database to be ready
+        run: |
+          for i in $(seq 1 30); do
+            docker compose exec -T db pg_isready -U appuser -d searchapp && exit 0
+            sleep 2
+          done
+          echo "Database did not become ready in time" && exit 1
 
       - name: Wait for app to be ready
         run: |
